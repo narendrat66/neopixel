@@ -54,21 +54,21 @@ void mgos_neopixel_set(struct mgos_neopixel *np, int i, int r, int g, int b) {
   switch (np->order) {
     case MGOS_NEOPIXEL_ORDER_RGB:
       p[0] = r;
-     // p[1] = g;
-     // p[2] = b;
+      //p[1] = g;
+      //p[2] = b;
       break;
 
     case MGOS_NEOPIXEL_ORDER_GRB:
       p[0] = g;
-     // p[1] = r;
-     // p[2] = b;
+      //p[1] = r;
+      //p[2] = b;
       break;
 
-    case MGOS_NEOPIXEL_ORDER_BGR:
+    /*case MGOS_NEOPIXEL_ORDER_BGR:
       p[0] = b;
      // p[1] = g;
      // p[2] = r;
-      break;
+      break;*/
 
     default:
       LOG(LL_ERROR, ("Wrong order: %d", np->order));
