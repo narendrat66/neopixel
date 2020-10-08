@@ -50,25 +50,29 @@ struct mgos_neopixel *mgos_neopixel_create(int pin, int num_pixels,
 }
 
 void mgos_neopixel_set(struct mgos_neopixel *np, int i, int r, int g, int b) {
-  uint8_t *p = np->data + i * NUM_CHANNELS;
+  //uint8_t *p = np->data + i * NUM_CHANNELS;
   switch (np->order) {
     case MGOS_NEOPIXEL_ORDER_RGB:
-      p[0] = r;
-      //p[1] = g;
-      //p[2] = b;
+      // p[0] = r;
+      // p[1] = g;
+      // p[2] = b;
+
+     np->data [0] = r;
+     np->data [1] = g;
+     np->data [2] = b;
       break;
 
     case MGOS_NEOPIXEL_ORDER_GRB:
-      p[0] = g;
-      //p[1] = r;
-      //p[2] = b;
+      // p[0] = g;
+      // p[1] = r;
+      // p[2] = b;
       break;
 
-    /*case MGOS_NEOPIXEL_ORDER_BGR:
-      p[0] = b;
-     // p[1] = g;
-     // p[2] = r;
-      break;*/
+    case MGOS_NEOPIXEL_ORDER_BGR:
+      // p[0] = b;
+      // p[1] = g;
+      // p[2] = r;
+      break;
 
     default:
       LOG(LL_ERROR, ("Wrong order: %d", np->order));
